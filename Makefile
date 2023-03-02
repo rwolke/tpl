@@ -27,6 +27,8 @@ build: build-$(shell go env GOOS)
 build-linux: clean fmt
 	GOOS=linux GOARCH=amd64 \
 		go build -ldflags "$(LDFLAGS)" -o _releases/$(NAME)-linux-amd64
+	GOOS=linux GOARCH=s390x \
+		go build -ldflags "$(LDFLAGS)" -o _releases/$(NAME)-linux-s390x
 	GOOS=linux GOARCH=arm64 \
 		go build -ldflags "$(LDFLAGS)" -o _releases/$(NAME)-linux-arm64
 	GOOS=linux GOARCH=riscv64 \
